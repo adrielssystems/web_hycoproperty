@@ -179,10 +179,11 @@ export function Navbar({
               href={process.env.NEXT_PUBLIC_CRM_URL || 'https://www.hycopropertymanagement.com/profile/'}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-slate-300 hover:text-[#F3D270] transition-colors font-medium"
+              className="flex items-center gap-1 text-slate-300 hover:text-[#F3D270] transition-colors font-medium text-[10px] sm:text-xs"
             >
-              <User className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>{language === 'en' ? 'PORTAL LOGIN' : 'ACCESO PORTAL'}</span>
+              <User className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4AF37]" />
+              <span className="hidden sm:inline">{language === 'en' ? 'PORTAL LOGIN' : 'ACCESO PORTAL'}</span>
+              <span className="sm:hidden">{language === 'en' ? 'PORTAL' : 'PORTAL'}</span>
             </a>
           </div>
         </div>
@@ -199,7 +200,7 @@ export function Navbar({
           <img
             src="/hyco_brand_logo.png"
             alt="HYCO Property Management"
-            className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           />
         </a>
 
@@ -231,15 +232,18 @@ export function Navbar({
         </nav>
 
         {/* Right CTA Button ("BOOK A VIEWING") & Drawer Toggle */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             type="button"
             onClick={() => onOpenBooking()}
-            className="gold-gradient text-[#070D18] font-semibold text-[11px] sm:text-xs uppercase tracking-[0.18em] px-4 sm:px-6 py-3 rounded-sm shadow-[0_10px_30px_rgba(212,175,55,0.28)] hover:brightness-110 active:scale-[0.99] transition-all flex items-center gap-2 cursor-pointer"
+            className="gold-gradient text-[#070D18] font-semibold text-[11px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.18em] px-3 sm:px-6 py-2.5 sm:py-3 rounded-sm shadow-[0_10px_30px_rgba(212,175,55,0.28)] hover:brightness-110 active:scale-[0.99] transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer"
           >
-            <Calendar className="w-3.5 h-3.5" />
-            <span>
+            <Calendar className="w-3.5 h-3.5 shrink-0" />
+            <span className="hidden sm:inline">
               {language === 'en' ? 'BOOK A VIEWING' : 'AGENDAR VISITA'}
+            </span>
+            <span className="sm:hidden">
+              {language === 'en' ? 'BOOK' : 'AGENDAR'}
             </span>
           </button>
 

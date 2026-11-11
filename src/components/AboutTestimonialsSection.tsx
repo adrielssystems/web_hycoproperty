@@ -94,11 +94,11 @@ export function AboutTestimonialsSection({
               ))}
             </div>
 
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={() => onOpenBooking('Schedule Property Owner Consultation')}
-                className="gold-gradient text-[#070D18] font-semibold text-xs uppercase tracking-[0.18em] px-7 py-3.5 rounded-sm hover:brightness-110 transition-all cursor-pointer"
+                className="w-full sm:w-auto text-center gold-gradient text-[#070D18] font-semibold text-xs uppercase tracking-[0.18em] px-7 py-3.5 rounded-sm hover:brightness-110 transition-all cursor-pointer"
               >
                 {language === 'en'
                   ? 'SCHEDULE A CONSULTATION'
@@ -107,7 +107,7 @@ export function AboutTestimonialsSection({
 
               <a
                 href="tel:+13176750041"
-                className="px-6 py-3.5 rounded-sm border border-white/20 bg-[#0B1526] hover:border-[#D4AF37] text-white text-xs uppercase tracking-[0.18em] font-medium flex items-center gap-2 transition-colors"
+                className="w-full sm:w-auto text-center justify-center px-6 py-3.5 rounded-sm border border-white/20 bg-[#0B1526] hover:border-[#D4AF37] text-white text-xs uppercase tracking-[0.18em] font-medium flex items-center gap-2 transition-colors"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>{language === 'en' ? 'CALL US: +1 (317) 675-0041' : 'LLÁMENOS: +1 (317) 675-0041'}</span>

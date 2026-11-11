@@ -126,7 +126,7 @@ export function ArchitecturalHero({
                   </span>
                 </div>
 
-                <h1 className="font-editorial text-5xl sm:text-6xl xl:text-7xl font-normal tracking-[0.03em] leading-[1.02] text-white whitespace-pre-line drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+                <h1 className="font-editorial text-4xl sm:text-6xl xl:text-7xl font-normal tracking-[0.03em] leading-[1.05] text-white whitespace-pre-line drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
                   {currentLevel.headline[language]}
                 </h1>
 
@@ -142,11 +142,11 @@ export function ArchitecturalHero({
             </AnimatePresence>
 
             {/* CTAs */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={onExploreProperties}
-                className="px-7 py-3.5 border border-white/40 bg-white/[0.04] hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-[#070D18] text-white text-xs uppercase tracking-[0.22em] font-semibold backdrop-blur-md transition-all duration-300 flex items-center gap-3 cursor-pointer"
+                className="w-full sm:w-auto px-6 sm:px-7 py-3.5 border border-white/40 bg-white/[0.04] hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-[#070D18] text-white text-xs uppercase tracking-[0.2em] font-semibold backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer"
               >
                 <span>
                   {language === 'en' ? 'EXPLORE FOR LEASE' : 'EXPLORAR EN RENTA'}
@@ -157,7 +157,7 @@ export function ArchitecturalHero({
               <button
                 type="button"
                 onClick={() => onSelectPropertyId(currentLevel.propertyId)}
-                className="px-5 py-3.5 bg-[#0B1526]/85 border border-[#D4AF37]/40 hover:border-[#F3D270] text-[#F3D270] text-xs uppercase tracking-[0.18em] font-medium backdrop-blur-md transition-all flex items-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-5 py-3.5 bg-[#0B1526]/85 border border-[#D4AF37]/40 hover:border-[#F3D270] text-[#F3D270] text-xs uppercase tracking-[0.18em] font-medium backdrop-blur-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Maximize2 className="w-3.5 h-3.5" />
                 <span>
@@ -363,7 +363,7 @@ export function ArchitecturalHero({
           </div>
 
           {/* Timeline Selector */}
-          <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto max-w-full py-1">
+          <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto max-w-full py-1 no-scrollbar">
             {ARCHITECTURAL_LEVELS.map((lvl, idx) => {
               const active = idx === activeIndex;
               return (

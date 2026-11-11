@@ -337,7 +337,7 @@ export function ForLeaseSection({
           <button
             type="button"
             onClick={() => onOpenBooking('Custom Commercial / Industrial Space Requirement')}
-            className="gold-gradient text-[#070D18] font-semibold text-xs uppercase tracking-[0.18em] px-6 py-3.5 rounded-sm shrink-0 hover:brightness-110 transition-all cursor-pointer"
+            className="w-full md:w-auto text-center gold-gradient text-[#070D18] font-semibold text-xs uppercase tracking-[0.18em] px-6 py-3.5 rounded-sm shrink-0 hover:brightness-110 transition-all cursor-pointer"
           >
             {language === 'en' ? 'LET’S TALK BUSINESS' : 'HABLEMOS DE SU ESPACIO'}
           </button>
