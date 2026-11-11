@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --bg-darkest: #070D18;
+  --bg-deep: #0B1526;
+  --bg-surface: #0F1E36;
+  --hyco-gold: #D4AF37;
+  --hyco-gold-light: #F3D270;
+  --hyco-gold-dark: #B89222;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #070D18;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(21, 39, 68, 0.75) 0%, rgba(7, 13, 24, 0.98) 60%),
+    linear-gradient(180deg, #070D18 0%, #0B1526 50%, #070D18 100%);
+  color: #F8FAFC;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+/* Architectural Grid & Light Lines (Aurelia / HYCO V18) */
+.architectural-grid {
+  background-size: 64px 64px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.glass-panel {
+  background: rgba(11, 21, 38, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 28px 60px -12px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(212, 175, 55, 0.16);
+}
+
+.glass-input {
+  background: rgba(7, 13, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  color: #FFFFFF;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #F3D270 0%, #D4AF37 50%, #B89222 100%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF3C4 0%, #F3D270 35%, #D4AF37 70%, #B89222 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-beam-vertical {
+  background: linear-gradient(180deg, transparent 0%, rgba(243, 210, 112, 0.85) 50%, transparent 100%);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.65);
+}
+
+.gold-beam-horizontal {
+  background: linear-gradient(90deg, transparent 0%, rgba(243, 210, 112, 0.85) 50%, transparent 100%);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.65);
+}
+
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070D18;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
+}
