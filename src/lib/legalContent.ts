@@ -411,3 +411,4 @@ export const COOKIE_POLICY: LegalDocument = {
     },
   ],
 };
+
