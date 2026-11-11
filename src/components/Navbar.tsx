@@ -66,12 +66,48 @@ export function Navbar({
     },
   ];
 
-  const handleNavClick = (id: string) => {
+  const handleNavClick = (id: string, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
     onSelectSection(id);
     setMobileMenuOpen(false);
+
+    if (typeof window === 'undefined') return;
+
+    // If currently on a subpage (e.g. /terms, /privacy), redirect to home with hash
+    if (window.location.pathname !== '/') {
+      window.location.href = `/#${id}`;
+      return;
+    }
+
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      try {
+        window.history.replaceState(null, '', '#hero');
+      } catch {}
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const navOffset = 95;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+
+      try {
+        window.history.replaceState(null, '', `#${id}`);
+      } catch {}
+    } else {
+      const target = document.querySelector(`[id="${id}"]`);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -155,28 +191,28 @@ export function Navbar({
       {/* Main Navigation Row */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-4">
         {/* Official High-Resolution Logo (2.5:1 Natural Ratio) */}
-        <button
-          type="button"
-          onClick={() => handleNavClick('hero')}
-          className="flex items-center gap-3 text-left group focus:outline-none shrink-0"
+        <a
+          href="#hero"
+          onClick={(e) => handleNavClick('hero', e)}
+          className="flex items-center gap-3 text-left group focus:outline-none shrink-0 cursor-pointer"
         >
           <img
             src="/hyco_brand_logo.png"
             alt="HYCO Property Management"
             className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           />
-        </button>
+        </a>
 
         {/* Center Architectural Menu Links with Gold Active Underline */}
-        <nav className="hidden xl:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
-              <button
+              <a
                 key={item.id}
-                type="button"
-                onClick={() => handleNavClick(item.id)}
-                className={`relative py-2 text-xs uppercase tracking-[0.18em] font-medium transition-colors ${
+                href={`#${item.id}`}
+                onClick={(e) => handleNavClick(item.id, e)}
+                className={`relative py-2 text-xs uppercase tracking-[0.18em] font-medium transition-colors cursor-pointer ${
                   isActive
                     ? 'text-white'
                     : 'text-slate-300/75 hover:text-[#F3D270]'
@@ -189,7 +225,7 @@ export function Navbar({
                     className="absolute left-0 right-0 -bottom-0.5 h-[2px] bg-gradient-to-r from-[#F3D270] via-[#D4AF37] to-[#B89222] shadow-[0_0_12px_rgba(212,175,55,0.8)]"
                   />
                 )}
-              </button>
+              </a>
             );
           })}
         </nav>
@@ -235,11 +271,11 @@ export function Navbar({
                 </p>
                 <div className="flex flex-col space-y-2">
                   {navItems.map((item, idx) => (
-                    <button
+                    <a
                       key={item.id}
-                      type="button"
-                      onClick={() => handleNavClick(item.id)}
-                      className="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-white/5 text-left group transition-colors"
+                      href={`#${item.id}`}
+                      onClick={(e) => handleNavClick(item.id, e)}
+                      className="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-white/5 text-left group transition-colors cursor-pointer"
                     >
                       <span className="text-sm uppercase tracking-[0.16em] text-slate-100 group-hover:text-[#F3D270]">
                         {item.label[language]}
@@ -247,7 +283,7 @@ export function Navbar({
                       <span className="text-xs font-mono text-[#D4AF37]/70">
                         0{idx + 1}
                       </span>
-                    </button>
+                    </a>
                   ))}
                 </div>
               </div>

@@ -15,8 +15,25 @@ export function Footer({ onSelectSection }: FooterProps) {
 
   const scrollTo = (id: string) => {
     onSelectSection(id);
+    if (typeof window === 'undefined') return;
+
+    if (window.location.pathname !== '/') {
+      window.location.href = `/#${id}`;
+      return;
+    }
+
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      const navOffset = 95;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
   };
 
   const handleOpenCookieSettings = () => {
