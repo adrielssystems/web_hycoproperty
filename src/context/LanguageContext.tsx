@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useTransition } from 'react';
 
 export type Language = 'en' | 'es';
 
@@ -13,17 +13,20 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>('en');
+  const [, startTransition] = useTransition();
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem('hyco_web_lang') as Language | null;
       if (saved === 'en' || saved === 'es') {
-        setLanguageState(saved);
+        startTransition(() => {
+          setLanguageState(saved);
+        });
       }
     } catch {
       // ignore storage errors
     }
-  }, []);
+  }, [startTransition]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);

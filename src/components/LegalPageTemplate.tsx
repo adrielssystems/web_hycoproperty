@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Shield, MapPin, Scale, CheckCircle2, ShieldCheck, Lock, Cookie } from 'lucide-react';
+import { ArrowLeft, MapPin, Scale, CheckCircle2, ShieldCheck, Lock, Cookie } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { LegalDocument } from '@/lib/legalContent';
 
