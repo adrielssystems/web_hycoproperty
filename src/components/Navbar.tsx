@@ -176,14 +176,13 @@ export function Navbar({
             <span className="text-white/15 hidden md:inline">|</span>
 
             <a
-              href={process.env.NEXT_PUBLIC_CRM_URL || 'https://www.hycopropertymanagement.com/profile/'}
+              href={process.env.NEXT_PUBLIC_CLIENT_PORTAL_URL || 'https://portal.hycopropertymanagement.com'}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-slate-300 hover:text-[#F3D270] transition-colors font-medium text-[10px] sm:text-xs"
+              className="flex items-center gap-1.5 text-slate-300 hover:text-[#F3D270] transition-colors font-medium text-[10px] sm:text-xs tracking-wider"
             >
               <User className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4AF37]" />
-              <span className="hidden sm:inline">{language === 'en' ? 'PORTAL LOGIN' : 'ACCESO PORTAL'}</span>
-              <span className="sm:hidden">{language === 'en' ? 'PORTAL' : 'PORTAL'}</span>
+              <span>LOGIN</span>
             </a>
           </div>
         </div>
