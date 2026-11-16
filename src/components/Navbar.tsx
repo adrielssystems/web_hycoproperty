@@ -176,7 +176,7 @@ export function Navbar({
             <span className="text-white/15 hidden md:inline">|</span>
 
             <a
-              href={process.env.NEXT_PUBLIC_CLIENT_PORTAL_URL || 'https://portal.hycopropertymanagement.com'}
+              href="/login"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-slate-300 hover:text-[#F3D270] transition-colors font-medium text-[10px] sm:text-xs tracking-wider"
